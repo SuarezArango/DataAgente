@@ -1,0 +1,5 @@
+r de Pearson,ValorTarifa,Trafico,TraficoEvasores,TraficoExentos787
+ValorTarifa,1.0,-0.1276,-0.0108,-0.1337
+Trafico,-0.1276,1.0,0.0167,0.7003
+TraficoEvasores,-0.0108,0.0167,1.0,0.0132
+TraficoExentos787,-0.1337,0.7003,0.0132,1.0

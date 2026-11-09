@@ -1,0 +1,432 @@
+/* ===================================================================
+   DataAgente — hoja de estilos
+   Organizada en: variables, base, utilidades, componentes, secciones,
+   y al final las adaptaciones a pantallas pequeñas.
+   =================================================================== */
+
+/* ---------- 1. Variables de diseño ---------- */
+/* Centralizar colores y medidas aquí permite cambiar el aspecto de toda
+   la página tocando un solo lugar. */
+:root {
+  --azul-oscuro:    #0B1220;
+  --azul-panel:     #111B2E;
+  --azul-borde:     #25344D;
+  --azul-mas-oscuro:#070C16;
+
+  --acento:         #5EEAD4;   /* turquesa, para botones y detalles */
+  --acento-texto:   #04201C;   /* texto sobre el acento */
+  --verde:          #0F766E;   /* acento sobre fondo claro */
+
+  --texto-claro:    #E6EDF3;
+  --texto-suave:    #AEBDCD;
+  --texto-tenue:    #8FA3BA;
+
+  --texto-oscuro:   #0B1220;
+  --texto-gris:     #475569;
+  --fondo-claro:    #F3F5F8;
+  --borde-claro:    #D8DEE6;
+  --blanco:         #FFFFFF;
+
+  --ancho-max:      1120px;
+  --radio:          12px;
+  --radio-chico:    8px;
+
+  --fuente:         'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --fuente-mono:    'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--texto-oscuro);
+  background: var(--blanco);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* clamp() escala el tamaño con el ancho de pantalla, entre un mínimo
+   y un máximo. Evita escribir tamaños distintos por cada pantalla. */
+h1 { font-size: clamp(36px, 5.2vw, 62px); font-weight: 700; }
+h2 { font-size: clamp(30px, 4vw, 44px); }
+h3 { font-size: 22px; letter-spacing: -0.01em; }
+
+p { margin: 0; }
+
+/* Foco visible para quien navega con el teclado. No quitar. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--azul-oscuro);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--acento);
+}
+
+/* ---------- 3. Utilidades de disposición ---------- */
+.contenedor {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.contenedor-estrecho {
+  max-width: 720px;
+}
+
+.seccion {
+  padding: 88px 0;
+}
+
+.seccion-clara  { background: var(--fondo-claro); }
+.seccion-oscura { background: var(--azul-oscuro); color: var(--texto-claro); }
+.seccion-oscura h2 { color: var(--blanco); }
+
+/* El bloque de acceso apila título, texto y formulario con aire entre ellos. */
+.seccion-oscura .contenedor-estrecho {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.seccion-oscura .subtitulo { max-width: 100%; }
+
+.seccion-encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 700px;
+  margin-bottom: 48px;
+}
+
+/* La rejilla usa minmax(0, 1fr) para que las columnas puedan encogerse
+   por debajo de su contenido; sin eso, el texto largo las desborda. */
+.rejilla {
+  display: grid;
+  gap: 24px;
+}
+
+.rejilla-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rejilla-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* ---------- 4. Componentes ---------- */
+
+/* -- Etiqueta pequeña en mayúsculas -- */
+.etiqueta {
+  font-family: var(--fuente-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+.etiqueta-oscura { color: var(--verde); }
+
+/* -- Botones -- */
+/* min-height 52px: los botones deben ser cómodos de tocar en móvil.
+   Por debajo de 44px se vuelven difíciles de acertar con el dedo. */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--radio-chico);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.boton:hover { opacity: 0.88; }
+
+.boton-grande { min-height: 52px; padding: 0 28px; }
+
+.boton-primario {
+  background: var(--acento);
+  color: var(--acento-texto);
+}
+
+.boton-secundario {
+  background: transparent;
+  color: var(--texto-claro);
+  border: 1px solid #3A4A63;
+  font-weight: 400;
+}
+
+/* -- Tarjetas -- */
+.tarjeta {
+  background: var(--blanco);
+  border: 1px solid var(--borde-claro);
+  border-radius: var(--radio);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tarjeta p { color: var(--texto-gris); }
+
+.numero {
+  font-family: var(--fuente-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--verde);
+}
+
+/* -- Capacidades (sin caja, separadas por una línea superior) -- */
+.capacidad {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0;
+  border-top: 2px solid var(--azul-oscuro);
+}
+
+.capacidad svg {
+  width: 28px;
+  height: 28px;
+  color: var(--verde);
+}
+
+.capacidad p { color: var(--texto-gris); }
+
+/* ---------- 5. Portada ---------- */
+.portada {
+  background: var(--azul-oscuro);
+  color: var(--texto-claro);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--texto-claro);
+  text-decoration: none;
+}
+
+.logo svg { color: var(--acento); }
+
+.nav-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+}
+
+.nav-enlaces a:not(.boton) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #C5D1DE;
+  text-decoration: none;
+}
+
+.nav-enlaces a:not(.boton):hover { color: var(--blanco); }
+
+.portada-cuerpo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: center;
+  padding: 56px 0 96px;
+}
+
+.portada-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.portada-texto h1 { color: var(--blanco); }
+
+.subtitulo {
+  font-size: 19px;
+  color: var(--texto-suave);
+  max-width: 540px;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ---------- 6. Demo de conversación ---------- */
+.demo {
+  background: var(--azul-panel);
+  border: 1px solid var(--azul-borde);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.demo-etiqueta {
+  font-family: var(--fuente-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
+}
+
+.burbuja {
+  max-width: 90%;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: var(--texto-claro);
+}
+
+.burbuja-usuario {
+  align-self: flex-end;
+  background: #1D2B45;
+  border-radius: 12px 12px 2px 12px;
+}
+
+.burbuja-agente {
+  background: #16233A;
+  border-left: 3px solid var(--acento);
+  border-radius: 2px 12px 12px 2px;
+}
+
+.pasos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pasos li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 15px;
+  color: #C5D1DE;
+}
+
+.paso-num {
+  font-family: var(--fuente-mono);
+  color: var(--acento);
+  flex-shrink: 0;
+}
+
+.codigo {
+  margin: 0;
+  padding: 14px 16px;
+  background: var(--azul-oscuro);
+  border: 1px solid var(--azul-borde);
+  border-radius: var(--radio-chico);
+  font-family: var(--fuente-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #C5D1DE;
+  overflow-x: auto;   /* el código largo se desplaza, no rompe la caja */
+}
+
+/* ---------- 7. Formulario ---------- */
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.campo {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 15px;
+  color: #C5D1DE;
+}
+
+.campo input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 17px;
+  color: var(--texto-oscuro);
+  background: var(--blanco);
+  border: 1px solid var(--texto-tenue);
+  border-radius: var(--radio-chico);
+}
+
+.mensaje {
+  margin-top: 16px;
+  min-height: 24px;
+  font-size: 16px;
+}
+
+.mensaje.exito { color: var(--acento); }
+.mensaje.error { color: #FCA5A5; }
+
+/* ---------- 8. Pie ---------- */
+.pie {
+  background: var(--azul-mas-oscuro);
+  color: var(--texto-tenue);
+  padding: 28px 0;
+  font-size: 15px;
+}
+
+.pie-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+
+/* ---------- 9. Pantallas pequeñas ---------- */
+/* Un solo punto de quiebre: por debajo de 860px todo pasa a una columna.
+   El resto del diseño ya es fluido gracias a grid, flex-wrap y clamp(). */
+@media (max-width: 860px) {
+  .portada-cuerpo,
+  .rejilla-2,
+  .rejilla-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portada-cuerpo { padding: 32px 0 64px; }
+  .seccion        { padding: 64px 0; }
+
+  .botones .boton { flex: 1 1 100%; }
+}

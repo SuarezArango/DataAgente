@@ -1,0 +1,4 @@
+A,B,valores_A,valores_B,A_afectados,pct_A_afectados,pct_B_con_un_solo_A,avisa
+color,ciudad,4,8,4,100.0,0.0,False
+estado,ciudad,3,8,3,100.0,0.0,False
+estado,color,3,4,3,100.0,0.0,False

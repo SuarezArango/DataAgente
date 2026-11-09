@@ -1,0 +1,4 @@
+A,B,valores_A,valores_B,A_afectados,pct_A_afectados,pct_B_con_un_solo_A,avisa
+Peaje,IdPeaje,144,145,1,0.7,100.0,True
+IdCategoriaTarifa,IdPeaje,45,145,30,66.7,0.0,False
+IdCategoriaTarifa,Peaje,45,144,30,66.7,0.0,False

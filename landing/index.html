@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataAgente — Agente de análisis de datos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- ============ CABECERA + PORTADA ============ -->
+  <header class="portada">
+    <div class="contenedor">
+
+      <nav class="nav">
+        <a href="#inicio" class="logo">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 21h18"/><path d="M6 21V11"/><path d="M12 21V4"/><path d="M18 21v-8"/>
+          </svg>
+          DataAgente
+        </a>
+        <div class="nav-enlaces">
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#capacidades">Capacidades</a>
+          <a href="#acceso" class="boton boton-primario">Acceso anticipado</a>
+        </div>
+      </nav>
+
+      <div class="portada-cuerpo" id="inicio">
+        <div class="portada-texto">
+          <p class="etiqueta">Agente de análisis de datos · En desarrollo</p>
+          <h1>Pregúntale a tus datos.<br>Recibe el análisis.</h1>
+          <p class="subtitulo">
+            Un agente que lee tus archivos y bases de datos, revisa su calidad,
+            ejecuta el análisis y te explica los resultados en lenguaje claro.
+            Pensado para empresas y analistas que quieren ahorrar tiempo.
+          </p>
+          <div class="botones">
+            <a href="#acceso" class="boton boton-primario boton-grande">Solicitar acceso</a>
+            <a href="#como-funciona" class="boton boton-secundario boton-grande">Ver cómo funciona</a>
+          </div>
+        </div>
+
+        <!-- Ejemplo ilustrativo de una conversación con el agente -->
+        <div class="demo">
+          <p class="demo-etiqueta">Ejemplo ilustrativo</p>
+
+          <div class="burbuja burbuja-usuario">
+            ¿Qué regiones tuvieron la mayor caída de ventas el último trimestre?
+          </div>
+
+          <ol class="pasos">
+            <li><span class="paso-num">01</span> Carga ventas.csv y revisa los tipos de datos</li>
+            <li><span class="paso-num">02</span> Elimina duplicados y trata los valores nulos</li>
+            <li><span class="paso-num">03</span> Agrupa por región y compara los trimestres</li>
+            <li><span class="paso-num">04</span> Genera el gráfico y resume el hallazgo</li>
+          </ol>
+
+          <pre class="codigo"><code>SELECT region, trimestre, SUM(ventas) AS total
+FROM ventas
+GROUP BY region, trimestre;</code></pre>
+
+          <div class="burbuja burbuja-agente">
+            Te muestro el gráfico comparativo, las regiones que más cayeron
+            y qué revisar para entender por qué.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ============ CÓMO FUNCIONA ============ -->
+  <section id="como-funciona" class="seccion seccion-clara">
+    <div class="contenedor">
+      <div class="seccion-encabezado">
+        <p class="etiqueta etiqueta-oscura">Cómo funciona</p>
+        <h2>Del archivo a la conclusión en tres pasos</h2>
+      </div>
+
+      <div class="rejilla rejilla-3">
+        <article class="tarjeta">
+          <span class="numero">01</span>
+          <h3>Conecta tus datos</h3>
+          <p>Sube un archivo CSV o Excel, o conecta una base de datos SQL.</p>
+        </article>
+        <article class="tarjeta">
+          <span class="numero">02</span>
+          <h3>Haz tu pregunta</h3>
+          <p>Escribe lo que quieres saber, como se lo preguntarías a un colega analista.</p>
+        </article>
+        <article class="tarjeta">
+          <span class="numero">03</span>
+          <h3>Revisa el resultado</h3>
+          <p>Recibe tablas, gráficos y una explicación, con el código usado para que puedas verificarlo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPACIDADES ============ -->
+  <section id="capacidades" class="seccion">
+    <div class="contenedor">
+      <div class="seccion-encabezado">
+        <p class="etiqueta etiqueta-oscura">Capacidades</p>
+        <h2>Lo que el agente puede hacer por ti</h2>
+      </div>
+
+      <div class="rejilla rejilla-3">
+        <article class="capacidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true">
+            <path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/>
+          </svg>
+          <h3>Limpieza de datos</h3>
+          <p>Detecta duplicados, valores nulos y formatos inconsistentes, y propone cómo corregirlos.</p>
+        </article>
+
+        <article class="capacidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/>
+          </svg>
+          <h3>Análisis exploratorio</h3>
+          <p>Resume distribuciones, correlaciones y valores atípicos para que sepas por dónde empezar.</p>
+        </article>
+
+        <article class="capacidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true">
+            <path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3z"/>
+            <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/>
+            <path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
+          </svg>
+          <h3>Consultas SQL</h3>
+          <p>Convierte tu pregunta en una consulta y te muestra el código para que lo revises.</p>
+        </article>
+
+        <article class="capacidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true">
+            <path d="M3 21h18"/><path d="M6 21V11"/><path d="M12 21V4"/><path d="M18 21v-8"/>
+          </svg>
+          <h3>Visualizaciones</h3>
+          <p>Elige el tipo de gráfico adecuado para cada pregunta y lo genera listo para usar.</p>
+        </article>
+
+        <article class="capacidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true">
+            <path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7"/><path d="M9 17h7"/>
+          </svg>
+          <h3>Informes automáticos</h3>
+          <p>Reúne hallazgos, tablas y gráficos en un informe que puedes compartir.</p>
+        </article>
+
+        <article class="capacidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" aria-hidden="true">
+            <path d="M4 5h16v11H9l-5 4z"/>
+          </svg>
+          <h3>Explicaciones claras</h3>
+          <p>Cuenta qué encontró, qué significa y qué conviene revisar antes de decidir.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARA QUIÉN ============ -->
+  <section id="para-quien" class="seccion seccion-clara">
+    <div class="contenedor">
+      <div class="seccion-encabezado">
+        <p class="etiqueta etiqueta-oscura">Para quién</p>
+        <h2>Menos horas preparando datos, más tiempo para decidir</h2>
+      </div>
+
+      <div class="rejilla rejilla-2">
+        <article class="tarjeta">
+          <h3>Para empresas</h3>
+          <p>
+            Obtén respuestas sobre tus datos de ventas, inventario u operación
+            sin esperar un informe manual cada vez que surge una pregunta.
+          </p>
+        </article>
+        <article class="tarjeta">
+          <h3>Para analistas</h3>
+          <p>
+            Delega la limpieza y las consultas repetitivas, y dedica tu tiempo
+            a interpretar los resultados y recomendar acciones.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORMULARIO DE ACCESO ============ -->
+  <section id="acceso" class="seccion seccion-oscura">
+    <div class="contenedor contenedor-estrecho">
+      <h2>Sé de los primeros en probarlo</h2>
+      <p class="subtitulo">
+        Estamos en fase de pruebas. Déjanos tu correo y te avisamos cuando haya novedades.
+      </p>
+
+      <!--
+        El formulario aún no envía a ningún servidor.
+        Ver landing/README.md para conectarlo cuando haga falta.
+      -->
+      <form class="formulario" id="formulario-acceso" novalidate>
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+        </div>
+        <button type="submit" class="boton boton-primario boton-grande">Quiero acceso</button>
+      </form>
+
+      <p class="mensaje" id="mensaje" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    <div class="contenedor pie-contenido">
+      <span>&copy; 2026 DataAgente · Proyecto en desarrollo</span>
+      <span>Contacto: contacto@ejemplo.com</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
